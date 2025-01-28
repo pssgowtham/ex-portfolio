@@ -10,7 +10,8 @@ const Contact = () => {
     setIsSubmitting(true);
     try {
       // Replace with your API endpoint
-      await fetch('http://localhost:5006/api/contact', {
+      const CONTACT_API = `${import.meta.env.VITE_API_URL}/api/contact`;
+      await fetch(CONTACT_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

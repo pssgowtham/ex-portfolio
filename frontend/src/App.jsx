@@ -8,15 +8,15 @@ import Education from './components/Education'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 
-
-
 function App() {
   const [resumeData, setResumeData] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5006/api/resume')
+        const RESUME_API = `${import.meta.env.VITE_API_URL}/api/resume`;
+
+        const response = await axios.get(RESUME_API)
         setResumeData(response.data)
       } catch (error) {
         console.error('Error fetching data:', error)
